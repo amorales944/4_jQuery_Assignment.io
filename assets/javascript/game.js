@@ -1,48 +1,30 @@
+$(document).ready(function() {
+  var playerScore = 0;
+  var random1;
+  var random2;
+  var total = 0;
+  var number1 = parseInt($("#randomNum").text());
+  var number2 = parseInt($("#playerNum").text());
 
-
-var playerScore = 0;
-var random = 0;
-var number1 = parseInt($("#randomNum").text());
-var number2 = parseInt($("#playerNum").text());
-
-
-
-var randomNumber = function (random) {
-  random = Math.floor(Math.random() * (12 - 1) + 1) + 1;
-  return random
-};
-
-
-
-$(document).ready(function () {
-
-  $("#randomBtn").on("click", function () {
-    random = Math.floor(Math.random() * (120 - 19) + 1) + 19;
-    $("#randomNum").text(random);
+  $("#randomBtn").on("click", function() {
+    random1 = Math.floor(Math.random() * (120 - 19) + 1) + 19;
+    $("#randomNum").text(random1);
+    console.log(random1);
   });
-
-
-  $("#jokerOne").on("click", function () {
-    random = Math.floor(Math.random() * (12 - 1) + 1) + 1;
-    var total = playerScore += random;
+  var randomFunction = function() {
+    random2 = Math.floor(Math.random() * (12 - 1) + 1) + 1;
+    total = playerScore += random2;
     $("#playerNum").text(total);
-  });
-
-  $("#jokerTwo").on("click", function () {
-    random = Math.floor(Math.random() * (12 - 1) + 1) + 1;
-    var total = playerScore += random
+  };
+  $("img").on("click", function() {
+    randomFunction();
     $("#playerNum").text(total);
-  });
-
-  $("#jokerThree").on("click", function () {
-    random = Math.floor(Math.random() * (12 - 1) + 1) + 1;
-    var total = playerScore += random
-    $("#playerNum").text(total);
-  });
-
-  $("#jokerFour").on("click", function () {
-    random = Math.floor(Math.random() * (12 - 1) + 1) + 1;
-    var total = playerScore += random
-    $("#playerNum").text(total);
+    if (random1 === total) {
+      alert("You Matched");
+    }
+    if (total > random1) {
+      alert("Sorry you lost, you went over.  Play again");
+    }
+    console.log(total);
   });
 });
