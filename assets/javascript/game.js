@@ -3,7 +3,11 @@
 var playerScore = 0;
 var random = 0;
 
+
+
+
 var randomNumber = function (random) {
+
   random = Math.floor(Math.random() * (12 - 1) + 1) + 1;
   return random
 };
@@ -19,20 +23,31 @@ $(document).ready(function () {
     $("#randomNum").text(random);
   });
 
+
+
+
+
   $("#jokerOne").on("click", function () {
     random = Math.floor(Math.random() * (12 - 1) + 1) + 1;
-    var total = playerScore += random
+    var total = playerScore += random;
+    var number1 = parseInt($("#randomNum").text());
+    var number2 = parseInt($("#playerNum").text());
+
     $("#playerNum").text(total);
 
 
-    if (random === playerScore) {
-      alert("You WON")
-      console.log(playerScore);
+
+    if (number1 === number2) {
+      alert("You WON");
+      console.log(number1);
     }
-    if ("#playerNum" <= "#randomNum") {
-      alert("You trash, Looser")
-      console.log(playerScore);
+     (number1 > total)  {
+      alert("Went over, You Lost");
+      console.log(total);
     }
+    
+    
+
 
 
 
@@ -57,7 +72,7 @@ $(document).ready(function () {
   });
 
 
-  
+
 
 
 
