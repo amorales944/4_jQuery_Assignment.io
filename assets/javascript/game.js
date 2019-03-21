@@ -20,10 +20,12 @@ $(document).ready(function() {
     randomFunction();
     $("#playerNum").text(total);
     if (random1 === total) {
-      alert("You Matched");
+      alert("You Matched, Keep playing");
+      window.location.reload();
     }
     if (total > random1) {
-      alert("Sorry you lost, you went over.  Play again");
+      alert("Sorry you lost, you went over.  Try again");
+      window.location.reload();
     }
     console.log(total);
   });
